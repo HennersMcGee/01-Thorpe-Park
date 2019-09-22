@@ -25,7 +25,6 @@ packFn <- function(list) {
             print(paste0(i, " not installed"))
             install.packages(i)
         }
-        print(i)
         eval(parse(text=paste0("library(",i,")")))
     }
     

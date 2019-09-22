@@ -30,12 +30,12 @@ password <- readline(prompt="Enter password: ")
 # Scrape Thorpe Park data every 5 mins between 10am and 8pm inclusive
 while (TRUE) {
     #When it is before 10am check time every 60 minute
-    if (format(as.POSIXct(Sys.time()+60),'%H')<10) {
+    if (format(as.POSIXct(Sys.time()+60),'%H')<9) {
         Sys.sleep(60)
     #When it is after 8pm, sleep for 10 hours
-    } else if (format(as.POSIXct(Sys.time()-360),'%H')>19) {
+    } else if (format(as.POSIXct(Sys.time()-360),'%H')>20) {
         #At most, sleep until 30 seconds before 10am
-        Sys.sleep(10*60*60-30)
+        Sys.sleep(60)
     #When it is between 10am and 8pm, check if time is multiple of 5 mins
     } else if (
         #-30 as spotted 1 second out between R and SQL server so giving gap of 30 seconds for any future deviation
