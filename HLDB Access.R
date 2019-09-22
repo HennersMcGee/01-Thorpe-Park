@@ -24,7 +24,7 @@ library(xml2)
 
 mydb = dbConnect(MySQL(), 
                  user='u235764393_HL', 
-                 password='GuestPassword', 
+                 password=password, 
                  dbname='u235764393_HLDB', 
                  host='sql134.main-hosting.eu',
                  trusted_connection="True")
@@ -52,7 +52,7 @@ HTMLfn <- function() {
 
 mydb = dbConnect(MySQL(), 
                  user='u235764393_HL', 
-                 password='GuestPassword', 
+                 password=password, 
                  dbname='u235764393_HLDB', 
                  host='sql134.main-hosting.eu',
                  trusted_connection="True")

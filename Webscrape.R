@@ -16,12 +16,9 @@
 ## ---------------------------
 
 #Load in required packages
-library(odbc)
-library(DBI)
-library(dbplyr)
-library(plyr)
-library(RMySQL)
-library(xml2)
+source("Packages_Install_Load.R")
+packFn(c("odbc","DBI","dbplyr","plyr","RMySQL","xml2","ggvis"))
+#PackagesIL(packList)
 
 #Run scrape function script
 source("Scrape Function.R")
