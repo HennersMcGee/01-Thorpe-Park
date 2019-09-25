@@ -17,7 +17,7 @@
 
 #Load in required packages
 source("Packages_Install_Load.R")
-packFn(c("odbc","DBI","dbplyr","plyr","RMySQL","xml2","ggvis"))
+packFn(c("odbc","DBI","dbplyr","plyr","RMySQL","xml2"))
 #PackagesIL(packList)
 
 #Run scrape function script
@@ -28,12 +28,13 @@ password <- readline(prompt="Enter password: ")
 
     
 # Scrape Thorpe Park data every 5 mins between 10am and 8pm inclusive
+#Coded as between 9am and 9 pm, to avoid problems with UTC vs BST
 while (TRUE) {
     #When it is before 10am check time every 60 minute
-    if (format(as.POSIXct(Sys.time()+60),'%H')<9) {
+    if (as.numeric(format(Sys.time()+60,'%H'))<9) {
         Sys.sleep(60)
     #When it is after 8pm, sleep for 10 hours
-    } else if (format(as.POSIXct(Sys.time()-360),'%H')>20) {
+    } else if (as.numeric(format(Sys.time()-360,'%H'))>20) {
         #At most, sleep until 30 seconds before 10am
         Sys.sleep(60)
     #When it is between 10am and 8pm, check if time is multiple of 5 mins
