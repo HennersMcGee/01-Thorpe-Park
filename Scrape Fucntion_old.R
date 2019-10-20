@@ -67,5 +67,5 @@ TPscrape <- function(data=data) {
 
 TPscrape()
 
-#saveRDS(Data,"Data20190809.rds")
+
 

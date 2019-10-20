@@ -52,10 +52,6 @@ HTMLfn <- function(password) {
     
     HTML2 <- gsub("'","''",HTML)[1:10]
     
-    
-    Query <- paste0("INSERT INTO ``ThorpePark_HTML` (`HTML`) VALUES ('`'",
-                    HTML2,"'`');",sep="")
-    
     dbSendQuery(mydb, paste0("INSERT INTO `ThorpePark_HTML` (`HTML`) VALUES ('",HTML2,"');",sep=""))
     
     for (i in dbListConnections(MySQL())) {dbDisconnect(i)}
